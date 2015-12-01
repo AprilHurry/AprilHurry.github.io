@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>jQuery One</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>jQuery One</h1>
+    <section>
+      <ul>
+        <li>You will code in this index.html file, save and refresh to see the results of your work.</li>
+        <li><a href="directions.html" target="_blank">Directions...</a></li>
+      </ul>
+    </section>
+    <!-- YOUR HTML MARKUP GOES BELOW THIS COMMENT  -->
+    <div id="everything">
+        <h1>A heading!</h1>
+        <p>Here's some text!</p>
+        <p id = 'second-p'>Here's a second set of text!</p>
+        <div class="holder">
+            <ul>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+            </ul>
+        </div>
+        <div class="holder">
+            <ul>
+                <li>List Item 4</li>
+                <li>List Item 5</li>
+                <li>List Item 6</li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    
+    <!-- YOUR HTML MARKUP GOES ABOVE THIS COMMENT  -->
+  </div>
+  <script type = "text/javascript">
+    var allDivs = $('div');
+    console.log(allDivs);
+    
+    var allULs = $('ul');
+    console.log(allULs);
+    
+    var allPs = $('p');
+    allPs.css('color', 'blue');
+    console.log(allPs);
+    
+    $('#everything').css('background-color', 'red');
+    $('.holder').css('border', '1px solid black');
+    
+    $('#second-p').remove();
+    $('ul > li').css('font-weight', 'bold');
+    $('div.container').prepend('<div>hello</div>');//Prepend a new <div> with the text "hello" to div#container
+    $('div.container').append('<div>goodbye</div>');//Append a new <div> with the text "goodbye" to div#container
+    $('body').prepend('<div></div>');//Prepend a new <div> the body 
+    $('body').append('<div></div>');//append a new <div> after.
+
+    $('<div id="first">i am first</div>').insertBefore('.holder:first'); //inserting a new div before the first occurance of the holder div
+    $('<div id="last">i am last</div>').insertAfter('.holder:last'); //Place a new div#last with text after the second div.holder
+    var newDetachedDiv = $('<div>text here</div>');
+    //Create a newDetachedDiv var which is a jQuery object of a new <div> with some text in it
+    newDetachedDiv.css('color', 'green');
+    newDetachedDiv.css('font-weight', 'bold');//Change some of its css properties.
+    newDetachedDiv.appendTo('#last');//now append it. Is it on the page yet?
+    //$('div').remove();//what does it do? removes everything between & including the <div></div> tags
+    //Reload the page and do this: 
+    //$('.container').empty(); //How is this different from above removes everything from between the <div class = "container"> tags
+    var orphanNode = $('#target').detach();//What does this code do? creates a variable targeting the element with the id 'holder'
+    // and detaches it.
+   $('.container').append(orphanNode); //Add. Why would this be useful?
+   $('.holder').find('li').css('color', 'blue');
+   $('div.container').children().css('background-color', 'yellow');
+   $('ul').parent().css('color', 'red');
+   setTimeout(function() {$('.holder:first').fadeOut();}, 2000);
+   setTimeout(function() {$('.holder:first').fadeIn();}, 5000);
+   setInterval(function() {$('.holder:last').fadeOut();}, 6000);
+  
+  </script>
+</body>
+
+</html>
