@@ -10,14 +10,252 @@
     <script type="text/javascript" src="bower_components/notes/notes.js"></script>
     <title>A Well of HTML</title>
     <style type="text/css">
+        form {
+        /* Just to center the form on the page */
+        margin: 0 auto;
+        width: 400px;
+        /* To see the outline of the form */
+        padding: 1em;
+        border: 1px solid #CCC;
+        border-radius: 1em;
+        }
+        form div + div {
+            margin-top: 1em;
+        }
+        label {
+            /* To make sure that all labels have the same size and are properly aligned */
+            display: inline-block;
+            width: 90px;
+            text-align: right;
+        }
+        input, textarea {
+            /* To make sure that all text fields have the same font settings
+               By default, textareas have a monospace font */
+            font: 1em sans-serif;
         
+            /* To give the same size to all text field */
+            width: 300px;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        
+            /* To harmonize the look & feel of text field border */
+            border: 1px solid #999;
+        }
+        input:focus, textarea:focus {
+            /* To give a little highlight on active elements */
+            border-color: #000;
+        }
+        textarea {
+            /* To properly align multiline text fields with their labels */
+            vertical-align: top;
+        
+            /* To give enough room to type some text */
+            height: 5em;
+        
+            /* To allow users to resize any textarea vertically
+               It does not work on every browsers */
+            resize: vertical;
+        }
+        button {
+            /* To position the buttons to the same position of the text fields */
+            padding-left: 90px; /* same size as the label elements */
+        }
+        button {
+            /* This extra margin represent roughly the same space as the space
+               between the labels and their text fields */
+            margin-left: .5em;
+        }
+        table {
+            margin: 20px;
+        }
+        table,
+        th,
+        td {
+            padding: 4px;
+            border: 1px solid black;
+        }
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 20px;
+            padding: 4px;
+        }
+        .grid {
+            margin: 20px;
+        }
+        
+        .row-img {
+            margin: 4px;
+        }
     </style>
 </head>
 
 <body>
     <div id="container" class="container">
         <!-- ALL YOUR MARKUP GOES BELOW HERE -->
+        <a href="https://en.wikipedia.org/wiki/Ros%C3%A9">Pink Wine</a>
+        <img src="img/cherries.jpg" />
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+            <p><b>Filter</b> has two parameters, a <b>collection</b> and a <b>function</b>, and it returns a new
+array of filtered values. It loops over the collection and applies the function
+to each value in the collection. The function's parameters may be the value, the
+position and the collection. The function tests for <i>true</i> or <i>false</i>, and elements
+returning <i>true</i> are added to the <b>filtered array</b>. </p>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+            <p><b>Partition</b> has two parameters, a <b>collection</b> and a <b>function</b>. The collection 
+may be an array or an object. The <em>function</em> may have the parameters of value, 
+position and collection. It tests for <i>true</i> or <i>false</i>. <strong>Partition</strong> returns an array 
+of two arrays, the first containing values for which the test function
+returns <i>true</i> and the second containing values for which the test function
+returns <i>false</i>.</p>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+        <ul>
+            <li>Item A</li>
+            <li>Item B</li>
+            <li>Item C</li>
+            <li>Item D</li>
+        </ul>
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+        </ol>
+        <dl>
+          <dt>Canada</dt>
+          <dd>A very cold country</dd>
+          <dt>Brazil</dt>
+          <dd>A very warm country</dd>
+        </dl>
+        <form action="/my-handling-form-page" method="post">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user_name" />
+            </div>
+            <div>
+                <label for="mail">E-mail:</label>
+                <input type="email" id="mail" name="user_email" />
+            </div>
+            <div>
+                <label for="msg">Message:</label>
+                <textarea id="msg" name="user_message"></textarea>
+            </div>
+            
+            <div class="button">
+                <button type="submit">Send your message</button>
+            </div>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Contact</th>
+                    <th>Group</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Event Volunteer List</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <th>April</th>
+                    <th>Hurry</th>
+                    <th>ah@gmail.com</th>
+                    <th>Set-up</th>
+                </tr>
+                <tr>
+                    <th>Carly</th>
+                    <th>Pigg</th>
+                    <th>cp@gmail.com</th>
+                    <th>Clean-up</th>
+                </tr>
+                <tr>
+                    <th>Diane</th>
+                    <th>Buckley</th>
+                    <th>db@gmail.com</th>
+                    <th>Clean-up</th>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <h4>Div 1</h4>
+            <p><b>Every</b> has two parameters, a collection and a test function. The collection 
+may be an array or an object. The test function resolves to true or false. 
+Every returns true if all tests return true and returns false if any test
+returns false.</p>
+        </div>
+        <div>
+            <h4>Div 2</h4>
+            <button type="button">Click Here</button>
+        </div>
+        <div>
+            <h4>Div 3</h4>
+            <p><b>Extend</b> has at least two parameters which are objects (object1 and object2).
+It can have an unknown number of objects. If object 2 has different values for
+the same property key as object1, the value in object2 is copied to object1. 
+If object2 has additional properties than object1, the new proprties are added
+to object1. If more than two objects are included in the extend call, the
+additional objects will be compared to object1 as above. The revised object1 
+is returned. </p>
+        </div>
+        <div>
+            <h4>Div 4</h4>
+            <ul>
+                <li>Each</li>
+                <li>Map</li>
+                <li>Reduce</li>
+                <li>Filter</li>
+            </ul>
+        </div>
+        <div>
+            <h4>Div 5</h4>
+            <table>
+                <tr>
+                    <td>name 1</td>
+                    <td>address 1</td>
+                    <td>contact 1</td>
+                </tr>
+                <tr>
+                    <td>name 2</td>
+                    <td>address 2</td>
+                    <td>contact 2</td>
+                </tr>
+            </table>
+        </div>
         
+        <div class="flex-row">
+            <div>One</div>
+            <div>Two</div>
+            <dov>Three</dov>
+            <div>Four</div>
+            <div>Five</div>
+        </div>
+        
+        
+        <div class="grid">
+            <div class "row">
+                <div class="col-md-3">Moon Tiger</div>
+                <div class="col-md-3">Family Album: A Novel</div>
+                <div class="col-md-6">Penelope Lively</div>
+            </div>
+            <div class "row">
+                <div class="col-md-3">Blood Meridan</div>
+                <div class="col-md-3">The Road</div>
+                <div class="col-md-6">Carmac McCarthy</div>
+            </div>
+            <div class "row">
+                <div class="col-md-3">The Secret Life of Violet Grant</div>
+                <div class="col-md-3">A Hundred Summers</div>
+                <div class="col-md-6">Beatriz Williams</div>
+            </div>
+        </div>
         
         
         
@@ -31,3 +269,5 @@
 </body>
 
 </html>
+
+
